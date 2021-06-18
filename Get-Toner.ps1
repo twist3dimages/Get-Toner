@@ -1,6 +1,7 @@
-﻿function Get-Toner ($printServer)
+﻿
+function Get-Toner ($printServer)
 {
-  $printers = Get-WmiObject -Class Win32_Printer -ComputerName $printServer | select Caption,Location,portname
+  $printers = Get-WmiObject -Class Win32_Printer -ComputerName potomac1 | select Caption,Location,portname
 
   $TonerStatus = @()
   foreach ($printer in $printers)
@@ -53,4 +54,5 @@
     }
   }
   $TonerStatus
+
 }
